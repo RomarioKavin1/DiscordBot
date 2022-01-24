@@ -3,9 +3,17 @@
     "main.py": [
       {
         "id": "47781900-f1e7-419e-a027-96c7057b3ae5",
-        "line": 4,
-        "version": 39,
-        "index": 40
+        "line": 2,
+        "version": 132,
+        "index": 15
+      }
+    ],
+    "token.env": [
+      {
+        "id": "166e4828-b71e-405f-899d-274125130d6d",
+        "line": 1,
+        "version": 17,
+        "index": 0
       }
     ]
   }
