@@ -1,7 +1,9 @@
 import discord
 import os
+from discord_components import DiscordComponents, ComponentsBot, Button, SelectOption, Select
+import discord.ext.commands as commands
 client = discord.Client()
-
+DiscordComponents(client)
 @client.event
 async def on_ready():
   print("we have logged in as {0.user}".format(client))
@@ -9,6 +11,7 @@ async def on_ready():
 async def on_message(message):
     empty_array = []
     modmail_channel = discord.utils.get(client.get_all_channels(), name="mod_mail")
+    
     if message.author == client.user:
         return
     if str(message.channel.type) == "private" or (str(message.channel) == "help_channel"and message.content.startswith("h:")):
@@ -24,6 +27,9 @@ async def on_message(message):
             help_message = string[index:]
             await modmail_channel.send("[" + message.author.display_name + "] " + help_message)
         else:
+           await ctx.send("hello", components = [
+        [Button(label="Hi", style="3", emoji = "🥴", custom_id="button1"), Button(label="Bye", style="4", emoji = "😔", custom_id="button2")]
+        ])
            await modmail_channel.send("[" + message.author.display_name + "] " + message.content)
 
     elif str(message.channel) == "mod_mail" and message.content.startswith("<"):
